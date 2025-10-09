@@ -1,0 +1,33 @@
+coverage:
+  status:
+    project:
+      default:
+        target: 80%
+        threshold: 2%
+        base: auto
+    patch:
+      default:
+        target: 80%
+        threshold: 5%
+
+  precision: 2
+  round: down
+  range: "70...100"
+
+comment:
+  layout: "header, diff, files, footer"
+  behavior: default
+  require_changes: false
+  require_base: false
+  require_head: true
+
+ignore:
+  - "node_modules"
+  - "test"
+  - "scripts"
+  - "*.test.js"
+  - "*.test.cjs"
+  - "*.config.js"
+  - "*.config.cjs"
+  - "dist"
+  - "coverage"
