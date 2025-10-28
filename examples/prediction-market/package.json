@@ -1,0 +1,32 @@
+{
+  "name": "prediction-market-example",
+  "version": "1.0.0",
+  "description": "Confidential prediction market using FHEVM SDK",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "compile": "hardhat compile",
+    "deploy": "hardhat run scripts/deploy.js",
+    "test": "hardhat test"
+  },
+  "dependencies": {
+    "@fhevm/sdk": "workspace:*",
+    "ethers": "^6.13.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@fhevm/solidity": "^0.8.0",
+    "@nomicfoundation/hardhat-ethers": "^3.0.0",
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "hardhat": "^2.24.0",
+    "typescript": "^5.0.0",
+    "vite": "^7.0.0"
+  }
+}
