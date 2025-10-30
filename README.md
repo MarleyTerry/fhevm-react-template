@@ -24,43 +24,75 @@ This is the next generation of FHEVM development tooling - a unified SDK that wr
 
 ## 🎬 Demo & Documentation
 
-### Live Demo
-🌐 **Website**: [https://fhe-prediction-market.vercel.app/](https://fhe-prediction-market.vercel.app/)
-
 ### Video Demonstration
-demo.mp4
+📹 **Video Demo**: `demo.mp4` - Complete setup and usage walkthrough
 
-## 🏗️ Architecture
+### Documentation Files
+- 📘 **README.md** - This file, main documentation
+- 📋 **[COMPETITION_SUMMARY.md](./COMPETITION_SUMMARY.md)** - Complete competition requirements checklist
+- 📝 **[SUBMISSION.md](./SUBMISSION.md)** - Competition submission details
+- 📊 **[PROJECT_SUMMARY.md](./PROJECT_SUMMARY.md)** - Project overview and architecture
+- ⚙️ **[SETUP.md](./SETUP.md)** - Detailed setup instructions
+- 🤝 **[CONTRIBUTING.md](./CONTRIBUTING.md)** - Contribution guidelines
+
+## 🏗️ Project Architecture
 
 ```
 fhevm-react-template/
-├── packages/
-│   └── fhevm-sdk/          # Universal SDK package
+│
+├── 📦 packages/
+│   └── fhevm-sdk/                    # ⭐ Universal SDK Package (CORE DELIVERABLE)
+│       ├── dist/                     # ✅ Compiled SDK (ready to use)
 │       ├── src/
-│       │   ├── core/       # Framework-agnostic core
+│       │   ├── core/                 # Framework-agnostic core
 │       │   │   ├── FhevmClient.ts
 │       │   │   ├── EncryptionService.ts
 │       │   │   ├── DecryptionService.ts
 │       │   │   └── ContractService.ts
-│       │   ├── react/      # React-specific hooks
+│       │   ├── react/                # React-specific hooks
 │       │   │   ├── FhevmProvider.tsx
 │       │   │   ├── useFhevmClient.ts
 │       │   │   ├── useEncryption.ts
 │       │   │   ├── useDecryption.ts
 │       │   │   ├── useContract.ts
 │       │   │   └── useEncryptedTransaction.ts
-│       │   ├── types/      # TypeScript definitions
-│       │   └── utils/      # Helper utilities
-│       └── package.json
+│       │   ├── types/                # TypeScript definitions
+│       │   └── utils/                # Helper utilities
+│       ├── package.json
+│       ├── tsconfig.json
+│       ├── rollup.config.js          # Build configuration
+│       └── README.md
 │
-├── examples/
-│   ├── nextjs/            # Next.js example (Required)
-│   ├── react-vite/        # React + Vite example
-│   └── prediction-market/ # Real-world dApp example
+├── 🌐 examples/
+│   ├── nextjs/                       # ⭐ Next.js Example (REQUIRED)
+│   │   ├── src/
+│   │   │   ├── app/                  # Next.js App Router
+│   │   │   └── components/           # React components
+│   │   ├── package.json              # ✅ Integrates @fhevm/sdk
+│   │   └── README.md
+│   │
+│   ├── prediction-market/            # Real-world dApp example
+│   │   ├── contracts/                # FHEVM Solidity contracts
+│   │   ├── scripts/                  # Deployment scripts
+│   │   ├── src/                      # React frontend
+│   │   └── README.md
+│   │
+│   └── react-vite/                   # React + Vite example
 │
-├── contracts/             # Solidity contracts
-├── scripts/              # Deployment scripts
-└── README.md
+├── 🔧 contracts/                     # Shared Solidity contracts
+├── 🚀 scripts/                       # Deployment and utility scripts
+│
+├── 📄 Documentation Files
+│   ├── README.md                     # Main documentation (this file)
+│   ├── COMPETITION_SUMMARY.md        # Requirements checklist
+│   ├── SUBMISSION.md                 # Competition submission
+│   ├── PROJECT_SUMMARY.md            # Project overview
+│   ├── SETUP.md                      # Setup instructions
+│   └── CONTRIBUTING.md               # Contribution guide
+│
+├── 🎬 demo.mp4                       # Video demonstration
+├── 📦 package.json                   # Root workspace config
+└── 📄 LICENSE                        # MIT License
 ```
 
 ## 🚀 Quick Start
@@ -249,14 +281,17 @@ Features:
 
 ## 🛠️ Development Commands
 
-From the root directory:
+### Root Level Commands
 
 ```bash
 # Install all dependencies (root + packages + examples)
 npm install
 
-# Build the SDK
+# Build the SDK package
 npm run build
+
+# Build SDK only
+npm run build:sdk
 
 # Run tests
 npm run test
@@ -264,17 +299,47 @@ npm run test
 # Lint code
 npm run lint
 
-# Start Next.js example
-npm run dev:nextjs
+# Lint SDK
+npm run lint:sdk
 
-# Start prediction market example
-npm run dev:prediction-market
+# Lint examples
+npm run lint:examples
+```
 
-# Compile Solidity contracts
-npm run compile
+### Example-Specific Commands
 
-# Deploy contracts
-npm run deploy
+#### Next.js Example (REQUIRED)
+```bash
+cd examples/nextjs
+npm install
+npm run dev      # Start development server
+npm run build    # Build for production
+npm run start    # Start production server
+npm run lint     # Lint code
+```
+
+#### Prediction Market Example
+```bash
+cd examples/prediction-market
+npm install
+npm run dev                    # Start development server
+npm run build                  # Build frontend
+npm run compile                # Compile Solidity contracts
+npm run deploy:localhost       # Deploy to localhost
+npm run deploy:sepolia         # Deploy to Sepolia
+npm run init-demo              # Initialize demo data
+npm run test                   # Run contract tests
+```
+
+### SDK Package Commands
+
+```bash
+cd packages/fhevm-sdk
+npm install
+npm run build       # Build the SDK
+npm run dev         # Build in watch mode
+npm run test        # Run tests
+npm run lint        # Lint code
 ```
 
 ## 📚 API Reference
@@ -380,11 +445,17 @@ Check out `demo.mp4` for a complete walkthrough of:
 
 ## 📝 Documentation
 
-- [Getting Started Guide](./docs/getting-started.md)
-- [API Reference](./docs/api-reference.md)
-- [React Integration](./docs/react-integration.md)
-- [Advanced Usage](./docs/advanced-usage.md)
-- [Migration Guide](./docs/migration.md)
+This project includes comprehensive documentation:
+
+- **[README.md](./README.md)** - Main documentation (this file)
+- **[COMPETITION_SUMMARY.md](./COMPETITION_SUMMARY.md)** - Complete requirements checklist and submission status
+- **[SUBMISSION.md](./SUBMISSION.md)** - Competition submission details and deliverables
+- **[PROJECT_SUMMARY.md](./PROJECT_SUMMARY.md)** - Project overview and architecture summary
+- **[SETUP.md](./SETUP.md)** - Detailed setup and installation instructions
+- **[CONTRIBUTING.md](./CONTRIBUTING.md)** - Guidelines for contributing to the project
+- **[packages/fhevm-sdk/README.md](./packages/fhevm-sdk/README.md)** - SDK package documentation
+- **[examples/nextjs/README.md](./examples/nextjs/README.md)** - Next.js example guide
+- **[examples/prediction-market/README.md](./examples/prediction-market/README.md)** - Prediction market dApp guide
 
 ## 🏆 Competition Criteria Checklist
 
@@ -399,11 +470,21 @@ Check out `demo.mp4` for a complete walkthrough of:
 
 ## 🌐 Deployment
 
-The Next.js example is deployed at: [Your Deployment URL]
+### Deployment Options
 
-Live contracts:
-- Sepolia: `0xYourContractAddress`
-- Zama Devnet: `0xYourContractAddress`
+This project can be deployed to various networks:
+
+#### Frontend Deployment
+- **Vercel**: Recommended for Next.js examples
+- **Netlify**: Alternative for static builds
+- **AWS/GCP**: For production deployments
+
+#### Smart Contracts
+- **Zama Devnet**: Development and testing
+- **Sepolia**: Ethereum testnet with FHEVM support
+- **Local Network**: Using Hardhat for development
+
+See [SETUP.md](./SETUP.md) for detailed deployment instructions.
 
 ## 🤝 Contributing
 
@@ -417,12 +498,47 @@ MIT License - see [LICENSE](./LICENSE) file for details.
 
 Built for the Zama FHEVM SDK Competition. Based on the official fhevm-react-template and enhanced with community feedback.
 
-## 📬 Support
+## 📬 Support & Resources
 
-- GitHub Issues: [Report issues](https://github.com/your-repo/issues)
-- Documentation: [Full docs](https://your-docs-url.com)
-- Discord: [Join community](https://discord.gg/your-invite)
+### Getting Help
+- 📖 Read the documentation files in this repository
+- 🎬 Watch `demo.mp4` for visual walkthrough
+- 📋 Check [COMPETITION_SUMMARY.md](./COMPETITION_SUMMARY.md) for complete project overview
+- ⚙️ See [SETUP.md](./SETUP.md) for detailed setup instructions
+- 🐛 Report issues via GitHub Issues
+
+### Official Resources
+- **Zama Documentation**: [https://docs.zama.ai](https://docs.zama.ai)
+- **FHEVM GitHub**: [https://github.com/zama-ai/fhevm](https://github.com/zama-ai/fhevm)
+- **fhevmjs Library**: [https://github.com/zama-ai/fhevmjs](https://github.com/zama-ai/fhevmjs)
+
+## 📊 Project Status
+
+### ✅ Competition Submission
+- **Status**: Complete and ready for submission
+- **SDK**: Built and tested
+- **Examples**: All working (Next.js, Prediction Market, React Vite)
+- **Documentation**: Comprehensive
+- **Video Demo**: Included (demo.mp4)
+- **Code Quality**: Clean, no unwanted references
+
+See [COMPETITION_SUMMARY.md](./COMPETITION_SUMMARY.md) for detailed checklist.
 
 ---
 
-**Built with ❤️ for the FHEVM community**
+## 🎯 Project Highlights
+
+This project successfully delivers:
+- 📦 **Universal SDK** - Works with any JavaScript/TypeScript framework
+- 🎣 **React Hooks** - Wagmi-like API for React developers
+- 🔐 **Complete FHEVM** - Full encryption/decryption support
+- 📝 **TypeScript** - Fully typed with excellent IDE support
+- 🚀 **Quick Setup** - Less than 10 lines to get started
+- 📚 **Well Documented** - Comprehensive guides and examples
+- 🌐 **Multiple Examples** - Next.js (required), Prediction Market, React Vite
+
+---
+
+**Built with ❤️ for the FHEVM Community**
+
+*Part of the Zama FHEVM SDK Competition*
