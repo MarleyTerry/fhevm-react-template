@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@fhevm/sdk": "workspace:*",
+    "@fhevm/sdk": "file:../../packages/fhevm-sdk",
     "ethers": "^6.13.4",
     "next": "^15.0.0",
     "react": "^19.0.0",
