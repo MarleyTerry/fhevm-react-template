@@ -20,7 +20,8 @@ This is the next generation of FHEVM development tooling - a unified SDK that wr
 - **🚀 Quick Setup**: Get started in less than 10 lines of code
 - **📚 Well Documented**: Comprehensive guides and examples
 
-
+### Live Demo
+🌐 **Website**: [https://fhe-prediction-market.vercel.app/](https://fhe-prediction-market.vercel.app/)  demo.mp4
 
 ## 🎬 Demo & Documentation
 
